@@ -40,35 +40,104 @@ body {
 }
 
 /* Header flotante elegante */
-.navbar {
-  position: fixed;
-  top: 20px;
-  left: 0%;
-  transform: translateX(25%);
-  width: 90%;
-  max-width: 1200px;
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px 30px;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(12px);
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
-  animation: fadeInDown 1s ease forwards;
-  opacity: 0;
-  transform: translateY(-20px);
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@keyframes fadeInDown {
+body {
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Header base */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #00dfd8;
+  letter-spacing: 1px;
+}
+
+/* Nav links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #00dfd8;
+}
+
+/* Menu icon (hamburger) */
+.menu-icon {
+  display: none;
+  font-size: 1.6rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Checkbox hidden */
+#menu-toggle {
+  display: none;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 30px;
+    background: rgba(0, 0, 0, 0.95);
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 12px;
+    display: none;
+    animation: fadeIn 0.3s ease forwards;
+  }
+
+  #menu-toggle:checked + .menu-icon + .nav-links {
+    display: flex;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+}
+
+/* Animación suave */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
-
 /* Logo */
 .logo {
   font-size: 1.6rem;
@@ -742,3 +811,4 @@ body {
   font-size: 0.85rem;
   color: #888;
 }
+
